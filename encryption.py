@@ -20,6 +20,8 @@ while True:
             with open(keyfile, 'wb') as tky:
                 tky.write(key)
             print(f'key has been written to {keyfile}')
+        elif opt1.upper() == 'N':
+            print('data not written to file!')
     elif do.upper() == 'DEC':
         opt1 = input('key in file or text: ')
         if str(opt1).upper() == 'FILE':
