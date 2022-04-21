@@ -1,4 +1,6 @@
 from cryptography.fernet import Fernet
+msgfile = 'message.txt'
+keyfile = 'key.key'
 while True:
     do = input('encrypt or decrypt? (enc/dec): ')
     if do.upper() == 'ENC':
@@ -12,12 +14,12 @@ while True:
         print(d.decode())
         opt1 = input('write data to file? (y/n): ')
         if opt1.upper() == 'Y':
-            with open('message.txt', 'wb') as stor:
+            with open(msgfile, 'wb') as stor:
                 stor.write(token)
-            print('encrypted msg has been written to b.txt')
-            with open('key.key', 'wb') as tky:
+            print(f'encrypted msg has been written to {msgfile}')
+            with open(keyfile, 'wb') as tky:
                 tky.write(key)
-            print('key has been written to key.key')
+            print(f'key has been written to {keyfile}')
     elif do.upper() == 'DEC':
         opt1 = input('key in file or text: ')
         if str(opt1).upper() == 'FILE':
